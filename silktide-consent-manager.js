@@ -112,12 +112,12 @@ class SilktideCookieBanner {
 	}
 
 	// update the checkboxes in the modal with the values from localStorage
-	updateCheckboxState(saveToStorage = false) {
-const preferencesSection = this.modal.querySelector("#cookie-preferences");
-if (preferencesSection) {
-	const checkboxes = preferencesSection.querySelectorAll('input[type="checkbox"]');
-	checkboxes.forEach((checkbox) => {
-		
+// update the checkboxes in the modal with the values from localStorage
+updateCheckboxState(saveToStorage = false) {
+	const preferencesSection = this.modal.querySelector("#cookie-preferences");
+	if (preferencesSection) {
+		const checkboxes = preferencesSection.querySelectorAll('input[type="checkbox"]');
+		checkboxes.forEach((checkbox) => {
 			const [, cookieId] = checkbox.id.split("cookies-");
 			const cookieType = this.config.cookieTypes.find((type) => type.id === cookieId);
 
@@ -161,10 +161,11 @@ if (preferencesSection) {
 			}
 		});
 	}
+}
 
-	setInitialCookieChoiceMade() {
-		window.localStorage.setItem(`silktideCookieBanner_InitialChoice${this.getBannerSuffix()}`, 1);
-	}
+setInitialCookieChoiceMade() {
+	window.localStorage.setItem(`silktideCookieBanner_InitialChoice${this.getBannerSuffix()}`, 1);
+}
 
 	// ----------------------------------------------------------------
 	// Consent Handling
